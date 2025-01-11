@@ -17,6 +17,14 @@ function savePill(){
 
     };
     pills.push(pill);
+    console.log(cart);
+    for(i = 0; i<cart.length; i++){
+        let index = prodocts.findIndex(item => item.id === Number(cart[i]['prodoctId']));
+        prodocts[index].stock = prodocts[index].stock - Number(cart[i]['add_amount']);
+
+
+    }
+    localStorage.setItem('prodocts', JSON.stringify(prodocts));
     localStorage.removeItem("cart")
     localStorage.setItem('pills', JSON.stringify(pills));
     cart = [];
@@ -25,6 +33,7 @@ function savePill(){
         document.getElementById('cart').innerHTML = '<h3 style="text-align: center; color:red; font-size:20px">لا توجد منتجات</h3>';
         
     }
+
 }
 // show the pills
 

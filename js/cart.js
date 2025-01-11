@@ -54,7 +54,7 @@ function add_item(){
         // if the item is aready exist this lins add the amount and update the sum
         let updatedAmount = cart[index]['add_amount'] + parseInt(add_amount.value);
         cart[index]['add_amount'] = updatedAmount;
-        cart[index]['sum'] = Number(updatedAmount) * Number(add_price.value);
+        cart[index]['sum'] = Number(updatedAmount) * Number(add_price.value) - Number(add_price.value);
         if(updatedAmount >= prodocts[itemindex].stock){
             cart[index]['add_amount'] = prodocts[itemindex].stock;
         }

@@ -15,7 +15,7 @@
     <div class="container">
         <div class="header">
             <div class="nav">
-                <a href="#">الرئيسية</a>
+                <a href="#"><input class="nav_selected" type="button" value="البيع"></a>
                 <a href="/pages/pills.html">الفواتير</a>
                 <a href="/pages/prodoct.html">المنتجات</a>
             </div>
@@ -30,7 +30,6 @@
                 <h3 class="add_item_tag">اضافة متنج</h3>
                 <div class="input_line">
                     <label class="label" for="item_name">المنتج:</label>
-                    <!-- <input class="text_intput" type="text" name="item_name" id="add_name" value="بسكوت"> -->
 
                     <select class="text_intput" id="add_name" name="item_name" onchange="getProdoctInfoByName()">
 
@@ -65,7 +64,7 @@
                     
                     <div>
                         <label class="costumers" for="overAll">المجموع:</label>
-                        <input type="number" name="overAll" class="text_intput" id="overAll">
+                        <input type="number" name="overAll" class="text_intput" id="overAll" readonly>
 
                         </input>
                     </div>

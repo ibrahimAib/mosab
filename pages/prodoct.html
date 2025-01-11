@@ -15,9 +15,9 @@
     <div class="container">
         <div class="header">
             <div class="nav">
-                <a href="/index.html">الرئيسية</a>
+                <a href="/index.html">البيع</a>
                 <a href="/pages/pills.html">الفواتير</a>
-                <a href="/pages/prodoct.html">المنتجات</a>
+                <a href="/pages/prodoct.html"><input class="nav_selected nav_pro" type="button" value="المنتجات"></a>
             </div>
             <div class="logo">
                 <img src="/logo.webp" width="100px" alt="">
@@ -29,23 +29,23 @@
                 <h3 class="add_item_tag">اضافة متنج</h3>
                 <div class="input_line">
                     <label class="label" for="add_title">المنتج:</label>
-                    <input class="text_intput" type="text" name="item_name" id="add_title" value="test">
+                    <input class="text_intput" type="text" name="item_name" id="add_title">
                 </div>
                 <div class="input_line">
                     <label class="label" for="add_ns"> التسلسلي:</label>
-                    <input class="text_intput" type="text" name="Serial_number" id="add_sn" onchange="printt()" value="6546578792">
+                    <input class="text_intput" type="text" name="Serial_number" id="add_sn" onchange="printt()">
                 </div>
                 <div class="input_line">
                     <label class="label" for="add_amount">الكمية:</label>
-                    <input class="small_input text_intput" type="number" name="amount" id="add_amount" value="10">
+                    <input class="small_input text_intput" type="number" name="amount" id="add_amount" value="1">
                 </div>
                 <div class="input_line">
                     <label class="label" for="add_price">السعر:</label>
-                    <input class="small_input text_intput" type="number" name="price" id="add_price" value="5">
+                    <input class="small_input text_intput" type="number" name="price" id="add_price" value="">
                 </div>
                 <div class="input_line">
                     <label class="label" for="add_catagory">التصنيف:</label>
-                    <input class="small_input text_intput" type="text" name="catagory" id="add_catagory" value="بساكيت">
+                    <input class="small_input text_intput" type="text" name="catagory" id="add_catagory">
                 </div>
                 <div class="input_line">
                     <input onclick="add_prodoct()" class="submit_button" type="button" name="" id="" value="اضافة المنتج">
