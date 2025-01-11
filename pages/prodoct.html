@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بسطة مصعب</title>
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <a href="/index.html">الرئيسية</a>
+                <a href="/pages/pills.html">الفواتير</a>
+                <a href="/pages/prodoct.html">المنتجات</a>
+            </div>
+            <div class="logo">
+                <img src="/logo.webp" width="100px" alt="">
+            </div>
+        </div>
+<div style="height: 20px;"></div>
+        <div class="bodycon pro_extra">
+            <div class="add_item">
+                <h3 class="add_item_tag">اضافة متنج</h3>
+                <div class="input_line">
+                    <label class="label" for="add_title">المنتج:</label>
+                    <input class="text_intput" type="text" name="item_name" id="add_title" value="test">
+                </div>
+                <div class="input_line">
+                    <label class="label" for="add_ns"> التسلسلي:</label>
+                    <input class="text_intput" type="text" name="Serial_number" id="add_sn" onchange="printt()" value="6546578792">
+                </div>
+                <div class="input_line">
+                    <label class="label" for="add_amount">الكمية:</label>
+                    <input class="small_input text_intput" type="number" name="amount" id="add_amount" value="10">
+                </div>
+                <div class="input_line">
+                    <label class="label" for="add_price">السعر:</label>
+                    <input class="small_input text_intput" type="number" name="price" id="add_price" value="5">
+                </div>
+                <div class="input_line">
+                    <label class="label" for="add_catagory">التصنيف:</label>
+                    <input class="small_input text_intput" type="text" name="catagory" id="add_catagory" value="بساكيت">
+                </div>
+                <div class="input_line">
+                    <input onclick="add_prodoct()" class="submit_button" type="button" name="" id="" value="اضافة المنتج">
+                </div>
+
+            </div>
+            <div class="homePill">
+                <div class="homePill_header">
+
+                    <input class="text_intput datetimeinput" type="datetime" name="" id="datetime">
+                </div>
+                <hr>
+                <div class="homePill_content">
+                    <div>
+                    <table class="pill_table_titles" id="prodocts">
+                        <tr>
+                            <th>المنتج</th>
+                            <th>المخزون</th>
+                            <th>السعر</th>
+                            <th>----</th>
+                        </tr>
+                        <table class="pill_table" >
+                        </table>
+                    </table>
+                </div>
+            </div>
+
+                <hr>
+
+            </div>
+        </div>
+    </div>
+    <script src="/js/prodocts.js"></script>
+    <script>
+        //add time
+        var now = new Date();
+        var datetime = now.toLocaleString();
+        document.getElementById("datetime").placeholder = datetime;
+        function printt() {
+            console.log('changed');
+        }
+    </script>
+</body>
+
+</html>

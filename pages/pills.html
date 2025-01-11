@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بسطة مصعب</title>
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <a href="/index.html">الرئيسية</a>
+                <a href="/pages/pills.html">الفواتير</a>
+                <a href="/pages/prodoct.html">المنتجات</a>
+            </div>
+            <div class="logo">
+                <img src="/logo.webp" width="100px" alt="">
+            </div>
+        </div>
+<div style="height: 20px;"></div>
+        <div class="bodycon extra centerer">
+        
+            <div class="homePill">
+                <div class="homePill_header">
+
+                    <input class="text_intput datetimeinput" type="datetime" name="" id="datetime">
+                </div>
+                <hr>
+                <div class="homePill_content extra">
+                    <div>
+                    <table class="pill_table_titles" id="pills">
+                        <tr>
+                            <th>العميل</th>
+                            <th>المجموع</th>
+                            <th>حالة الدفع</th>
+                        </tr>
+                        <table class="pill_table" >
+
+                        </table>
+                    </table>
+                </div>
+            </div>
+
+                <hr>
+
+            </div>
+        </div>
+    </div>
+    <script src="/js/pills.js"></script>
+    <script>
+        //add time
+        var now = new Date();
+        var datetime = now.toLocaleString();
+        document.getElementById("datetime").placeholder = datetime;
+        function printt() {
+            console.log('changed');
+        }
+    </script>
+</body>
+
+</html>

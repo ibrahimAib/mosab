@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بسطة مصعب</title>
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <a href="#">الرئيسية</a>
+                <a href="/pages/pills.html">الفواتير</a>
+                <a href="/pages/prodoct.html">المنتجات</a>
+            </div>
+            <div class="logo">
+                <img src="/logo.webp" width="100px" alt="">
+            </div>
+        </div>
+        <img src="/banner.jpg" width="100%" height="" alt="">
+
+        <div class="bodycon">
+            <div class="add_item">
+                <h3 class="add_item_tag">اضافة متنج</h3>
+                <div class="input_line">
+                    <label class="label" for="item_name">المنتج:</label>
+                    <!-- <input class="text_intput" type="text" name="item_name" id="add_name" value="بسكوت"> -->
+
+                    <select class="text_intput" id="add_name" name="item_name" onchange="getProdoctInfoByName()">
+
+                    </select>
+                </div>
+                <div class="input_line">
+                    <label class="label" for="Serial_number"> SN:</label>
+                    <input class="text_intput" type="text" name="Serial_number" id="add_sn" autofocus>
+                </div>
+                <div class="input_line">
+                    <label class="label" for="amount">الكمية:</label>
+                    <input class="small_input text_intput" type="number" name="amount" id="add_amount" value="1" min="1">
+                </div>
+                <div class="input_line">
+                    <label class="label" for="price">السعر:</label>
+                    <input class="small_input text_intput" type="number" name="price" id="add_price" readonly>
+                </div>
+                <div class="input_line">
+                    <input onclick="add_item()" class="submit_button" type="button" name="" id="" value="اضافة المنتج">
+                </div>
+
+            </div>
+            <div class="homePill">
+                <div class="homePill_header">
+                    <div>
+                        <label class="costumers" for="costumers">العميل:</label>
+                        <select class="text_intput" id="costumers">
+
+                        </select>
+                    </div>
+                    <input class="submit_button save_btn" type="button" value="حفظ" onclick="savePill()">
+                    
+                    <div>
+                        <label class="costumers" for="overAll">المجموع:</label>
+                        <input type="number" name="overAll" class="text_intput" id="overAll">
+
+                        </input>
+                    </div>
+                    <input class="text_intput datetimeinput" type="datetime" name="" id="datetime">
+                </div>
+                <hr>
+                <div class="homePill_content">
+                    <div>
+                    <table class="pill_table_titles">
+                        <tr>
+                            <th>المنتج</th>
+                            <th>العدد</th>
+                            <th>السعر</th>
+                            <th>المجموع</th>
+                            <th>---</th>
+                        </tr>
+                        <table class="pill_table" id="cart">
+                        </table>
+                    </table>
+                </div>
+            </div>
+
+                <hr>
+
+            </div>
+        </div>
+    </div>
+    <script src="/js/prodocts.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/pills.js"></script>
+    <script src="/js/cart.js"></script>
+
+</body>
+
+</html>
