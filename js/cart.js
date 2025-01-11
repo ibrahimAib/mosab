@@ -53,12 +53,15 @@ function add_item(){
     if(index != -1){
         // if the item is aready exist this lins add the amount and update the sum
         let updatedAmount = cart[index]['add_amount'] + parseInt(add_amount.value);
-        cart[index]['add_amount'] = updatedAmount;
-        cart[index]['sum'] = Number(updatedAmount) * Number(add_price.value) - Number(add_price.value);
         if(updatedAmount >= prodocts[itemindex].stock){
             cart[index]['add_amount'] = prodocts[itemindex].stock;
+            cart[index]['sum'] = cart[index]['add_amount'] * cart[index]['price'];
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }else{
+            cart[index]['add_amount'] = updatedAmount;
+            cart[index]['sum'] = cart[index]['add_amount'] * cart[index]['price'];
+            localStorage.setItem('cart', JSON.stringify(cart));
         }
-        localStorage.setItem('cart', JSON.stringify(cart));
         
 
     }else{
@@ -71,7 +74,7 @@ function add_item(){
             title : add_name.value,
             add_amount : parseInt(add_amount.value),
             price: add_price.value,
-            sum: parseInt(add_price.value) * parseInt(add_amount.value),
+            sum: Number(add_price.value) * Number(add_amount.value),
             paid: false,
         };
         cart.push(item);
@@ -155,16 +158,17 @@ function renderCart() {
         </tr>
                         `
     for (let i = 0; i < cart.length; i++) {
+        let ide = 'id' + i;
         HTMLtable += `
         <tr>
             <td><input class="text_intput" type="text" value="${cart[i].title}"></input></td>
-            <td><input class="text_intput text_input_small mr-t " type="number" value="${cart[i].add_amount || 0}"></td>
+            <td><input class="text_intput text_input_small mr-t" id="${ide}" onclick="amoutnUpdataCart(${i})" min="1" type="number" value="${cart[i].add_amount || 0}"></td>
             <td>
-            <input class="text_intput text_input_small mr-t " type="number" value="${cart[i].price}">
+            <input class="text_intput text_input_small mr-t " type="number" value="${cart[i].price}" readonly>
                 <span >ريال</span>
             </td>
             <td>
-                <input class="text_intput text_input_small mr-t " type="number" value="${cart[i].sum || 0}" readonly>
+                <input class="text_intput text_input_small mr-t " type="number" value="${cart[i].sum}" readonly>
                 <span>ريال</span>
             </td>
             <td>
@@ -175,4 +179,25 @@ function renderCart() {
     }
     document.getElementById('cart').innerHTML = HTMLtable;
     document.getElementById('overAll').value = overAll;
+}
+function amoutnUpdataCart(id){
+    let ide = 'id' + id;
+    let newAmount = parseInt(document.getElementById(ide).value);
+    let index = prodocts.findIndex(item => item.id === parseInt(cart[id]['prodoctId']));
+    
+    if(newAmount >= prodocts[index].stock){
+        cart[id].add_amount = prodocts[index].stock;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log('from if')
+    }else{
+        cart[id]['add_amount'] = newAmount;
+        cart[id]['sum'] = cart[id]['add_amount'] * cart[id]['price'];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log('from else')
+    }
+    let price = prodocts[index]['price'];
+    let amount = parseInt(cart[id]['add_amount']);
+    let sum = price * amount;
+    cart[id]['sum'] = sum;
+    renderCart()
 }
