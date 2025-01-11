@@ -145,21 +145,30 @@ function remove(ind){
 function renderCart() {
     let HTMLtable = '';
     let overAll = 0;
+        HTMLtable = `
+        <tr>
+            <th>المنتج</th>
+            <th>العدد</th>
+            <th>السعر</th>
+            <th>المجموع</th>
+            <th>---</th>
+        </tr>
+                        `
     for (let i = 0; i < cart.length; i++) {
         HTMLtable += `
         <tr>
-            <td><span class="name">${cart[i].title}</span></td>
-            <td><input class="text_intput text_input_small mr-t amount_cart" type="number" value="${cart[i].add_amount || 0}"></td>
+            <td><input class="text_intput" type="text" value="${cart[i].title}"></input></td>
+            <td><input class="text_intput text_input_small mr-t " type="number" value="${cart[i].add_amount || 0}"></td>
             <td>
-            <input class="text_intput text_input_small mr-t price_cart" type="number" value="${cart[i].price}">
-                <span class="price_cart">ريال</span>
+            <input class="text_intput text_input_small mr-t " type="number" value="${cart[i].price}">
+                <span >ريال</span>
             </td>
             <td>
-                <input class="text_intput text_input_small mr-t sum_cart" type="number" value="${cart[i].sum || 0}" readonly>
-                <span class="sum_cart">ريال</span>
+                <input class="text_intput text_input_small mr-t " type="number" value="${cart[i].sum || 0}" readonly>
+                <span>ريال</span>
             </td>
             <td>
-                <input class="text_intput text_input_small mr-t btn-del del_cart" type="button" value="حذف" onclick="remove(${i})">
+                <input class="text_intput text_input_small mr-t btn-del " type="button" value="حذف" onclick="remove(${i})">
             </td>
         </tr>`;
         overAll += cart[i].sum;

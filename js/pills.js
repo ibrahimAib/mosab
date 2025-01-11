@@ -37,23 +37,28 @@ function savePill(){
 }
 // show the pills
 
-console.log(pills.length);
-
 function renderPills() {
-    let HTMLtable = '';
+    HTMLtable = `
+            <tr>
+            <th>العميل</th>
+            <th>المجموع</th>
+            <th>حالة الدفع</th>
+        </tr>`;
+    document.getElementById('pills').innerHTML = '';
     for (let i = 0; i < pills.length; i++) {
         HTMLtable += `
         <tr>
             <td><input type="text" class="text_intput" value="${pills[i].costumerName}" readonly></td>
-            <td class="td_price"><input class="text_intput text_input_small mr-t" type="text" value="${pills[i].overAll}" readonly></td>
+            <td class="td_price">
+                <input class="text_intput text_input_small mr-t" type="text" value="${pills[i].overAll}" readonly>
+                <span>ريال</span>
+            </td>
             <td>
                 <input class="text_intput text_input_small mr-t ${pills[i].paid == false ? 'btn-del' : 'btn-update'}" type="button" value="${pills[i].paid == false ? 'دفع': 'تم'}" onclick="paymentUpdata(${i})">
             </td>
-            
-
-
         </tr>`;
     }
+    
     document.getElementById('pills').innerHTML += HTMLtable;
 };
 if(document.getElementById('pills')){
