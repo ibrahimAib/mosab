@@ -89,6 +89,7 @@ function add_item(){
 // prodocts selction
 
 let prodocts_selctions = '';
+prodocts_selctions += '<option id="" value="" name="">اختر</option>';
 for(i=0; i<prodocts.length; i++){
     prodocts_selctions += `
     <option id="${prodocts[i].id}" value="${prodocts[i].title}" name="${prodocts[i].sn}">${prodocts[i].title}</option>
